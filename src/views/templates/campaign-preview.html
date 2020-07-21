@@ -446,7 +446,7 @@
                     {{'campaign_page_faq' | translate }}
                     <span class="count-label ui label">{{campaign.faqs[0].faq_pairs.length || 0}}</span>
                   </a>
-                  <a class="item" data-tab="backers" ng-class="{'hide-mobile': moveBackersBelowCreatorAccordionMobile}" ng-click="toggleHash('campaign_page_backers')" ng-show="(showBacker || ((showBacker || backer_length) && public_settings.site_theme_campaign_backer_option !='2')) && !isBackersOnSidebar"
+                  <a class="item" data-tab="backers" ng-class="{'hide-mobile': moveBackersBelowCreatorAccordionMobile}" ng-click="toggleHash('campaign_page_backers')" ng-show="backer_show && !isBackersOnSidebar"
                     id="mobile-backer">{{' campaign_page_backers' | translate}}
                     <span class="count-label ui label">{{backer_length}}</span>
                   </a>
