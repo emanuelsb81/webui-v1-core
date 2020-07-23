@@ -148,5 +148,12 @@
   "admin_only_popup_msg": "This field can only be viewed by website administrator",
   "admin_only_popup_label": "Admin Only",
   "plural_letter": "s",
-  "wordpress_api_problems": "Your blog URL is not correct and may cause problems with website. Please correct it and save settings again."
+  "wordpress_api_problems": "Your blog URL is not correct and may cause problems with website. Please correct it and save settings again.",
+  "site_new_platform_modal_header": "Welcome to Thrinacia Atlas. Below is a quick help to get you started.",
+  "site_new_platform_modal_please_click": "",
+  "site_new_platform_modal_accept_all": "1. Would you like to capture all payments in single Stripe account?",
+  "site_new_platform_modal_run_platform": "2. Would you like to run a marketplace platform and charge fees?",
+  "site_new_platform_modal_goto_payment_settings": "Open Payment Settings",
+  "site_new_platform_modal_click_here": "Click Here"
+
 }

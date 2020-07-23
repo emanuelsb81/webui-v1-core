@@ -1,4 +1,4 @@
-app.controller('LoginCtrl', function($rootScope, $scope, PortalSettingsService, UserService, Restangular, redirectService, $translate, $translatePartialLoader, AUTH_SCHEME, $timeout) {
+app.controller('LoginCtrl', function($rootScope, $location, $scope, PortalSettingsService, UserService, Restangular, redirectService, $translate, $translatePartialLoader, AUTH_SCHEME, $timeout) {
   // Login page
   $scope.submit_once = false;
   $scope.formData = {};
@@ -105,6 +105,30 @@ app.controller('LoginCtrl', function($rootScope, $scope, PortalSettingsService, 
           $scope.login_message = value.login_page_login_success;
         });
         UserService.setLoggedIn(success); // Update loggedin status and user account info
+        if (success.person_type_id == 1){
+        Restangular.one('account/stripe/application').customGET("", {},
+          {
+              'X-Auth-Token': success.auth_token
+          }
+          ).then(function(success) {
+          var stripe_setting = success.plain();
+          var show_modal = false;
+
+          if (!stripe_setting.publishable_key || stripe_setting.publishable_key == "public_id_dummy") {
+              show_modal = true;
+          }
+
+          if (!stripe_setting.secret_key || stripe_setting.secret_key == "secret_key_dummy") {
+              show_modal = true;
+          }
+
+          if (show_modal){
+            $location.path('/admin/dashboard');
+            $location.hash('portal-settings');
+            $rootScope.showNewPlatformModal = true
+          }
+        });
+    }
         $('.ui.modal').modal('hide');
       },
       function(failure) { // If the login request fails, set the errors returned from the server

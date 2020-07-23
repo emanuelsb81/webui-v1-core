@@ -1,4 +1,4 @@
-app.service('UserService', function($location, $http, APIRegister, ipCookie, Restangular, $timeout, redirectService) {
+app.service('UserService', function($location, $http, APIRegister, ipCookie, Restangular, $timeout, redirectService, $translate) {
   var User = {
     email: '',
     first_name: '',

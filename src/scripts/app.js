@@ -607,7 +607,6 @@ app.controller('MainCtrl', ['$scope', '$location', 'UserService', 'Restangular',
 
     PortalSettingsService.getSettingsObj(true).then(function(success) {
       $scope.public_setting = success.public_setting;
-      console.log($scope.public_setting);
       if($scope.public_setting.site_disable_unsupported_browsers !== undefined && $scope.public_setting.site_disable_unsupported_browsers != false){
         //disable facebook browser
         $scope.isFacebookApp = function() {

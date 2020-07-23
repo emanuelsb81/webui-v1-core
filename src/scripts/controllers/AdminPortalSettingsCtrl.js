@@ -2,6 +2,24 @@
 //      PORTAL SETTINGS TAB / SETTINGS CONTROLLER
 //------------------------------------------------------
 app.controller('AdminPortalSettingsCtrl', function($scope, $rootScope, $location, $timeout, $window, Restangular, $translatePartialLoader, $translate, $q, SiteLogoService, ThemeService, UserService, DisqusShortnameService, FileUploadService, PortalSettingsService, StripeService, CurrencyService, Geolocator, LANG, AUTH_SCHEME, VideoLinkService, API_URL, ANONYMOUS_COMMENT, SOCIAL_SHARING_OPTIONS, $http) {
+  angular.element(document).ready(function(){
+    if($rootScope.showNewPlatformModal === true){
+      delete $rootScope.showNewPlatformModal;
+      $('.ui.modal.new-platform-modal').modal({
+        onApprove: function() {
+          var tab = $('#payment-settings-tab');
+          var elem = angular.element(tab);
+          var data_tab = elem.attr('data-tab');
+          // remove active class
+          elem.parent().find('.item').removeClass('active');
+          elem.parent().parent().find('.tab').removeClass('active');
+          // add active class to clicked tab
+          elem.addClass('active');
+          $("[data-tab='" + data_tab + "']").addClass('active');
+        }
+      }).modal('show');
+    }
+  })
   $scope.froalaOptionsMain = {};
   $scope.froalaOptionsBot = {};
   $scope.froalaOptionsExplore = {};
