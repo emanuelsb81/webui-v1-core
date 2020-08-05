@@ -154,6 +154,10 @@ app.controller('PortalSettingCtrl', function($location, $browser, $compile, $roo
     tabStatus[$location.hash()] = true;
   }
 
+  RequestCacheService.getCategory().then(function(success) {
+    $scope.categories = success;
+  })
+
   // click hash function
   var lastTab = "";
   $scope.clickHash = function(tabName) {

@@ -1099,8 +1099,6 @@ app.controller('CreateCampaignCtrl', function($q, $location, $routeParams, $root
   }
 
   $scope.deleteCampaignThumnail = function(files) {
-    console.log(files);
-    /*
     if (files && files.length) {
       var file = files.pop();
       var endpoint = 'resource/file';
@@ -1114,7 +1112,6 @@ app.controller('CreateCampaignCtrl', function($q, $location, $routeParams, $root
       $('.ui.progress.upload-bar').show();
       $('.ui.loader.download-loader').hide();
     }
-    */
   };
 
   // Get campaign top banner image
